@@ -1,8 +1,17 @@
-from nos import AEstrela
+from busca.a_estrela import AEstrela
 
 if __name__ == "__main__":
-    estado_inicial = ("e5", "amarelo")
-    estado_final = ("e1", "vermelho")
+    estado_inicial = tuple(
+        input('Insira o estado inicial (no formato "estação,linha"): ').split(",")
+    )
+
+    estado_final = tuple(
+        input('Insira o estado final (no formato "estação,linha"): ').split(",")
+    )
+
+    # estado_inicial = ("e14", "vermelho")
+    # estado_final = ("e6", "azul")
+
     mapa_linhas_caminho = "linhas.csv"
     mapa_distancia_real_caminho = "distancia_real.csv"
     mapa_distancia_direta_caminho = "distancia_direta.csv"
@@ -17,5 +26,6 @@ if __name__ == "__main__":
 
     solucao, custo_solucao = a.busca()
 
+    print("###################################")
     print(f"Custo da solução: {custo_solucao}")
     print(f"Solução: {solucao}")
