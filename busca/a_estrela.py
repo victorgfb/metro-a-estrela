@@ -67,7 +67,7 @@ class AEstrela:
 
     def __valida_estado(self, estado: Tuple[str, str]) -> None:
         """
-        Valida se o estado inserido é valido
+        Verifica se o estado inserido é valido
         """
         estacao, linha = estado
 
@@ -128,6 +128,10 @@ class AEstrela:
         """
         Retira o nó de menor custo da fronteira
         """
+
+        if len(self.fronteira) == 0:
+            raise Exception("Fronteira vazia.")
+
         no_atual = self.fronteira.pop(0)
 
         return no_atual
